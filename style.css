@@ -146,3 +146,17 @@ footer {
     align-items: center;
   }
 }
+#journey {
+  background: #fffaf0;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+#journey h2 {
+  margin-bottom: 1rem;
+}
+
+#journey p {
+  max-width: 600px;
+  margin: 0 auto;
+}
