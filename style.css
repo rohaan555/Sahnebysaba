@@ -1,162 +1,28 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fffef9;
-  color: #222;
-  line-height: 1.6;
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1rem;
-}
-
-/* Header */
-header {
-  background-color: #0e0e0e;
-  padding: 1rem 0;
-  color: #fff;
-}
-.logo {
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-.logo span {
-  color: #d4af37; /* Gold */
-}
-nav {
-  margin-top: 0.5rem;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  justify-content: flex-end;
-  gap: 1.5rem;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-nav a:hover {
-  color: #d4af37;
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(to right, #111, #3d322b);
-  color: #fff;
-  text-align: center;
-  padding: 4rem 1rem;
-}
-.hero h2 {
-  font-size: 2.8rem;
-  color: #ffd700;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem;
-}
-
-/* Collection Section */
-.collection {
-  padding: 3rem 1rem;
-  text-align: center;
-}
-.collection h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
+/* इमेज कंटेनर स्टाइलिंग */
 .products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
-.product {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  width: 240px;
-  transition: transform 0.3s ease;
-}
-.product:hover {
-  transform: translateY(-5px);
-}
+
 .product img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
-}
-.product p {
-  font-weight: 600;
-  color: #444;
-}
-
-/* About & Contact */
-.about, .contact {
-  padding: 2rem 1rem;
-  text-align: center;
-}
-.about h2, .contact h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-.about p, .contact p {
-  max-width: 700px;
-  margin: auto;
-  color: #555;
-}
-.contact a {
-  color: #d4af37;
-  text-decoration: none;
-}
-.contact a:hover {
-  text-decoration: underline;
+  height: 250px;
+  object-fit: cover;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: transform 0.3s;
 }
 
-/* Footer */
-footer {
-  background: #0e0e0e;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
+.product img:hover {
+  transform: scale(1.03);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1rem;
-  }
-  .products {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-#journey {
-  background: #fffaf0;
-  padding: 2rem 0;
-  text-align: center;
-}
-
-#journey h2 {
-  margin-bottom: 1rem;
-}
-
-#journey p {
-  max-width: 600px;
-  margin: 0 auto;
+/* हीरो सेक्शन इमेज */
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
 }
