@@ -3,204 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SahneBySaba | Luxury Jewelry</title>
+    <title>SahneBySaba - Luxury Handcrafted Jewelry</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Styles */
-        :root {
-            --gold: #D4AF37;
-            --dark: #222;
-            --light: #f9f9f9;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
         }
         body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            padding-top: 80px; /* Space for fixed header */
-        }
-        
-        /* Fixed Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            padding: 15px 0;
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
         }
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px 0;
+        }
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--gold);
-        }
-        nav ul {
+        .nav-links {
             display: flex;
-            list-style: none;
-            gap: 20px;
+            gap: 30px;
         }
-        nav a {
+        .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: #333;
             font-weight: 500;
+            transition: color 0.3s;
         }
-        
-        /* Hero Section with Background Image */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), 
-                        url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bHV4dXJ5JTIwamV3ZWxyeSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #d4af37;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
-            color: white;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3') center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
         }
         .hero-content {
-            width: 100%;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
         }
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 48px;
             margin-bottom: 20px;
         }
-        
-        /* Product Grid */
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
         .products {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 32px;
+            color: #333;
+        }
+        .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
-            padding: 60px 0;
         }
-        .product {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .product img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block; /* Fixes spacing issues */
-        }
-        .product-info {
+        .product-card {
+            border: 1px solid #e0d6c9;
             padding: 20px;
+            background: white;
+            transition: transform 0.3s ease;
+            text-align: center;
         }
-        .product h3 {
-            color: var(--gold);
-            margin: 0 0 10px;
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .price {
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .product-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .product-price {
+            font-size: 20px;
             font-weight: bold;
-            font-size: 1.2rem;
-            margin: 15px 0;
+            color: #d4af37;
+            margin-bottom: 15px;
         }
-        .btn {
-            background: var(--gold);
+        .btn-add-to-cart {
+            background-color: #d4af37;
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
             width: 100%;
+            font-size: 16px;
+        }
+        .btn-add-to-cart:hover {
+            background-color: #b6982a;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            color: #d4af37;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #d4af37;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Header -->
     <header>
         <div class="container">
-            <div class="logo">SahneBySaba</div>
             <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#collection">Collection</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#cart">Cart (0)</a></li>
-                </ul>
+                <div class="logo">SahneBySaba</div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Collection</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#" class="cart-icon">Cart <span class="cart-count">0</span></a>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Timeless Elegance</h1>
+            <p>Handcrafted luxury jewelry with ethical gemstones</p>
+        </div>
+    </section>
+
+    <section class="products">
         <div class="container">
-            <div class="hero-content">
-                <h1>Timeless Elegance</h1>
-                <p>Handcrafted luxury jewelry with ethical gemstones</p>
+            <h2 class="section-title">Our Signature Collection</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1603974372035-9d5c0dfc8a58?ixlib=rb-4.0.3" alt="Serenity Necklace" class="product-image">
+                    <h3 class="product-title">Serenity Necklace</h3>
+                    <p class="product-description">18K gold with ethically sourced diamonds</p>
+                    <p class="product-price">¥12,999</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3" alt="Eternity Ring" class="product-image">
+                    <h3 class="product-title">Eternity Ring</h3>
+                    <p class="product-description">Platinum setting with conflict-free diamond</p>
+                    <p class="product-price">¥24,999</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3" alt="Pearl Earrings" class="product-image">
+                    <h3 class="product-title">Pearl Earrings</h3>
+                    <p class="product-description">South sea pearls with gold hooks</p>
+                    <p class="product-price">¥8,999</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Collection Section -->
-    <section id="collection" class="container">
-        <h2>Our Signature Collection</h2>
-        <div class="products">
-            <!-- Product 1 -->
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z29sZCUyMG5lY2tsYWNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80" alt="Gold Necklace">
-                <div class="product-info">
-                    <h3>Serenity Necklace</h3>
-                    <p>18K gold with ethically sourced diamonds</p>
-                    <div class="price">₹12,999</div>
-                    <button class="btn">Add to Cart</button>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About SahneBySaba</h3>
+                    <p>Handcrafted luxury jewelry with ethically sourced gemstones and precious metals.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Jewel Street, San Jose, CA, USA</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@sahnebysaba.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/sahnebysaba" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Returns & Exchanges</a>
+                    <a href="#">Size Guide</a>
+                    <a href="#">FAQ</a>
                 </div>
             </div>
-            
-            <!-- Product 2 -->
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1603974374373-9a805f7f8b4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZGlhbW9uZCUyMHJpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=80" alt="Diamond Ring">
-                <div class="product-info">
-                    <h3>Eternity Ring</h3>
-                    <p>Platinum setting with conflict-free diamond</p>
-                    <div class="price">₹24,999</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-            
-            <!-- Product 3 -->
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVhcmwlMjBlYXJyaW5nc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pearl Earrings">
-                <div class="product-info">
-                    <h3>Pearl Earrings</h3>
-                    <p>South sea pearls with gold hooks</p>
-                    <div class="price">₹8,999</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
+            <div class="copyright">
+                <p>&copy; 2023 SahneBySaba. All rights reserved.</p>
             </div>
         </div>
-    </section>
+    </footer>
 
     <script>
-        // Sticky Header Functionality
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            header.style.boxShadow = window.scrollY > 10 
-                ? '0 2px 15px rgba(0,0,0,0.2)' 
-                : '0 2px 10px rgba(0,0,0,0.1)';
-        });
-        
-        // Cart Counter
-        let cartCount = 0;
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function() {
-                cartCount++;
-                document.querySelector('a[href="#cart"]').innerHTML = 
-                    `Cart (${cartCount})`;
-                
-                // Show notification
-                alert('Added to cart!');
+        // Cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+            const cartCount = document.querySelector('.cart-count');
+            
+            let cartItems = 0;
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    cartItems++;
+                    cartCount.textContent = cartItems;
+                    
+                    // Animation for feedback
+                    button.textContent = 'Added!';
+                    button.style.backgroundColor = '#4CAF50';
+                    
+                    setTimeout(() => {
+                        button.textContent = 'Add to Cart';
+                        button.style.backgroundColor = '#d4af37';
+                    }, 1000);
+                });
+            });
+            
+            // Cart icon click
+            document.querySelector('.cart-icon').addEventListener('click', function(e) {
+                e.preventDefault();
+                if(cartItems > 0) {
+                    alert(`You have ${cartItems} items in your cart!`);
+                } else {
+                    alert('Your cart is empty!');
+                }
             });
         });
     </script>
