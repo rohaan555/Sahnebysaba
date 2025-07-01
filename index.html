@@ -3,382 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SahneBySaba | Luxury Handcrafted Jewelry</title>
+    <title>SahneBySaba | Luxury Jewelry</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Modern Luxury Styling */
+        /* Base Styles */
         :root {
             --gold: #D4AF37;
-            --dark: #222222;
-            --light: #f8f5f0;
+            --dark: #222;
+            --light: #f9f9f9;
         }
         body {
-            font-family: 'Playfair Display', serif;
             margin: 0;
-            color: var(--dark);
-            line-height: 1.6;
-            background-color: var(--light);
+            font-family: 'Arial', sans-serif;
+            padding-top: 80px; /* Space for fixed header */
+        }
+        
+        /* Fixed Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
         }
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 0;
-        }
-
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .logo {
-            font-size: 2.2rem;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            font-weight: bold;
             color: var(--gold);
         }
         nav ul {
             display: flex;
-            gap: 30px;
             list-style: none;
+            gap: 20px;
         }
         nav a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: all 0.3s;
         }
-        nav a:hover {
-            color: var(--gold);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
+        
+        /* Hero Section with Background Image */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('images/hero-bg.jpg') center/cover;
-            height: 90vh;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), 
+                        url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bHV4dXJ5JTIwamV3ZWxyeSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
             display: flex;
             align-items: center;
-            text-align: center;
             color: white;
-            margin-top: 80px;
-        }
-        .hero h2 {
-            font-size: 3.8rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        /* Collection */
-        .section-title {
             text-align: center;
-            margin-bottom: 50px;
-            position: relative;
         }
-        .section-title:after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-            margin: 15px auto 0;
+        .hero-content {
+            width: 100%;
         }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Product Grid */
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
         }
         .product {
-            background: white;
+            border: 1px solid #eee;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            transition: transform 0.3s;
         }
         .product:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .product img {
             width: 100%;
-            height: 350px;
+            height: 300px;
             object-fit: cover;
+            display: block; /* Fixes spacing issues */
         }
         .product-info {
-            padding: 25px;
+            padding: 20px;
         }
         .product h3 {
             color: var(--gold);
             margin: 0 0 10px;
-            font-size: 1.5rem;
         }
-        .product .price {
+        .price {
             font-weight: bold;
             font-size: 1.2rem;
             margin: 15px 0;
-            color: var(--dark);
         }
         .btn {
-            display: inline-block;
             background: var(--gold);
             color: white;
-            padding: 12px 30px;
+            border: none;
+            padding: 10px 20px;
             border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        .btn:hover {
-            background: #c19b2e;
-            transform: translateY(-2px);
-        }
-
-        /* About */
-        #about {
-            background: white;
-            text-align: center;
-        }
-        .craft-points {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 40px;
-        }
-        .craft-point {
-            flex: 1;
-            min-width: 250px;
-            max-width: 300px;
-        }
-        .craft-icon {
-            font-size: 2.8rem;
-            color: var(--gold);
-            margin-bottom: 15px;
-        }
-
-        /* Contact */
-        #contact {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        .social-links a {
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .social-links a:hover {
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #999;
-            text-align: center;
-            padding: 30px 0;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 2.5rem; }
-            nav ul { gap: 15px; }
-            .products { grid-template-columns: 1fr; }
+            cursor: pointer;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Fixed Header -->
     <header>
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h1 class="logo">SahneBySaba</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#collection">Collection</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <div class="logo">SahneBySaba</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#cart">Cart (0)</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h2>Timeless Elegance, Crafted for You</h2>
-            <p>Each piece tells a story of exceptional craftsmanship and ethical luxury</p>
-            <a href="#collection" class="btn">Discover Our Collection</a>
+            <div class="hero-content">
+                <h1>Timeless Elegance</h1>
+                <p>Handcrafted luxury jewelry with ethical gemstones</p>
+            </div>
         </div>
     </section>
 
     <!-- Collection Section -->
     <section id="collection" class="container">
-        <div class="section-title">
-            <h2>Our Signature Collection</h2>
-        </div>
-        
+        <h2>Our Signature Collection</h2>
         <div class="products">
             <!-- Product 1 -->
             <div class="product">
-                <img src="images/necklace.jpg" alt="Serenity Gold Necklace">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z29sZCUyMG5lY2tsYWNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80" alt="Gold Necklace">
                 <div class="product-info">
                     <h3>Serenity Necklace</h3>
-                    <p>18K gold with ethically sourced diamonds, handcrafted by master jewelers.</p>
+                    <p>18K gold with ethically sourced diamonds</p>
                     <div class="price">₹12,999</div>
-                    <button class="btn" onclick="addToCart('Serenity Necklace', 12999)">
-                        Add to Cart
-                    </button>
+                    <button class="btn">Add to Cart</button>
                 </div>
             </div>
             
             <!-- Product 2 -->
             <div class="product">
-                <img src="images/ring.jpg" alt="Eternity Diamond Ring">
+                <img src="https://images.unsplash.com/photo-1603974374373-9a805f7f8b4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZGlhbW9uZCUyMHJpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=80" alt="Diamond Ring">
                 <div class="product-info">
                     <h3>Eternity Ring</h3>
-                    <p>Platinum setting with conflict-free 1ct center diamond, perfect for special occasions.</p>
+                    <p>Platinum setting with conflict-free diamond</p>
                     <div class="price">₹24,999</div>
-                    <button class="btn" onclick="addToCart('Eternity Ring', 24999)">
-                        Add to Cart
-                    </button>
+                    <button class="btn">Add to Cart</button>
                 </div>
             </div>
             
             <!-- Product 3 -->
             <div class="product">
-                <img src="images/earrings.jpg" alt="Pearl Drop Earrings">
+                <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVhcmwlMjBlYXJyaW5nc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pearl Earrings">
                 <div class="product-info">
                     <h3>Pearl Earrings</h3>
-                    <p>South sea pearls with 14K gold hooks, elegant for both day and evening wear.</p>
+                    <p>South sea pearls with gold hooks</p>
                     <div class="price">₹8,999</div>
-                    <button class="btn" onclick="addToCart('Pearl Earrings', 8999)">
-                        Add to Cart
-                    </button>
+                    <button class="btn">Add to Cart</button>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Craftsmanship</h2>
-            </div>
-            
-            <div class="craft-points">
-                <div class="craft-point">
-                    <div class="craft-icon">
-                        <i class="fas fa-hands"></i>
-                    </div>
-                    <h3>Handcrafted</h3>
-                    <p>Each piece is meticulously crafted by artisans with decades of experience</p>
-                </div>
-                
-                <div class="craft-point">
-                    <div class="craft-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h3>Ethical Stones</h3>
-                    <p>We use only conflict-free diamonds and responsibly sourced gemstones</p>
-                </div>
-                
-                <div class="craft-point">
-                    <div class="craft-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Sustainable</h3>
-                    <p>Recycled gold and eco-friendly packaging to minimize environmental impact</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Connect With Us</h2>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://instagram.com/sahnebysaba" target="_blank">
-                    <i class="fab fa-instagram"></i> @sahnebysaba
-                </a>
-                <a href="mailto:contact@sahnebysaba.com">
-                    <i class="fas fa-envelope"></i> contact@sahnebysaba.com
-                </a>
-                <a href="https://wa.me/919876543210">
-                    <i class="fab fa-whatsapp"></i> +91 98765 43210
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 SahneBySaba. All rights reserved.</p>
-            <p>Handcrafted in India with <i class="fas fa-heart" style="color:#e74c3c"></i></p>
-        </div>
-    </footer>
 
     <script>
-        // Shopping Cart Functionality
-        let cart = [];
+        // Sticky Header Functionality
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.style.boxShadow = window.scrollY > 10 
+                ? '0 2px 15px rgba(0,0,0,0.2)' 
+                : '0 2px 10px rgba(0,0,0,0.1)';
+        });
         
-        function addToCart(name, price) {
-            cart.push({name, price});
-            updateCartCount();
-            
-            // Show notification
-            const notification = document.createElement('div');
-            notification.style.position = 'fixed';
-            notification.style.bottom = '20px';
-            notification.style.right = '20px';
-            notification.style.backgroundColor = '#27ae60';
-            notification.style.color = 'white';
-            notification.style.padding = '15px 25px';
-            notification.style.borderRadius = '5px';
-            notification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-            notification.style.zIndex = '1000';
-            notification.style.animation = 'fadeIn 0.5s, fadeOut 0.5s 2.5s';
-            notification.innerHTML = `✓ Added ${name} to cart`;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
-        }
-        
-        function updateCartCount() {
-            document.getElementById('cart-count').textContent = cart.length;
-        }
+        // Cart Counter
+        let cartCount = 0;
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                cartCount++;
+                document.querySelector('a[href="#cart"]').innerHTML = 
+                    `Cart (${cartCount})`;
+                
+                // Show notification
+                alert('Added to cart!');
+            });
+        });
     </script>
 </body>
 </html>
