@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SahneBySaba | लग्जरी ज्वेलरी</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- हेडर सेक्शन -->
+  <header>
+    <div class="container">
+      <h1 class="logo">Sahne<span>By</span>Saba</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">होम</a></li>
+          <li><a href="#collection">कलेक्शन</a></li>
+          <li><a href="#policy">रिटर्न पॉलिसी</a></li>
+          <li><a href="#contact">संपर्क</a></li>
+          <li><a href="#cart">कार्ट (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- हीरो सेक्शन (बैकग्राउंड इमेज के साथ) -->
+<section class="hero" style="background: url('images/hero-background.jpg') center/cover no-repeat;">      <h2>एलीगेंट • टाइमलेस • योर्स</h2>
+      <p>हाथ से बनी लग्जरी ज्वेलरी</p>
+    </div>
+  </section>
+
+  <!-- कलेक्शन सेक्शन -->
+  <section id="collection" style="background: url('images/collection-bg.jpg') center/cover;">    <h2>हमारा कलेक्शन</h2>
+    <div class="products">
+      <!-- प्रोडक्ट 1 -->
+      <div class="product">
+        <img src="images/necklace.jpg" alt="गोल्ड नेकलेस">
+        <h3>गोल्ड नेकलेस</h3>
+        <p>₹12,999</p>
+        <button onclick="addToCart('गोल्ड नेकलेस', 12999)">कार्ट में जोड़ें</button>
+      </div>
+      <!-- प्रोडक्ट 2 -->
+      <div class="product">
+        <img src="images/ring.jpg" alt="डायमंड रिंग">
+        <h3>डायमंड रिंग</h3>
+        <p>₹9,999</p>
+        <button onclick="addToCart('डायमंड रिंग', 9999)">कार्ट में जोड़ें</button>
+      </div>
+      <!-- प्रोडक्ट 3 -->
+      <div class="product">
+        <img src="images/earrings.jpg" alt="पर्ल झुमके">
+        <h3>पर्ल झुमके</h3>
+        <p>₹7,999</p>
+        <button onclick="addToCart('पर्ल झुमके', 7999)">कार्ट में जोड़ें</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- रिटर्न पॉलिसी -->
+  <section id="policy" class="policy">
+    <div class="container">
+      <h2>रिटर्न एंड रिफंड पॉलिसी</h2>
+      <div class="policy-content">
+        <p>• 7 दिनों के अंदर रिटर्न कर सकते हैं</p>
+        <p>• प्रोडक्ट अनऑपन्ड और टैग के साथ होना चाहिए</p>
+        <p>• रिफंड प्रोसेसिंग में 3-5 कार्यदिवस लगेंगे</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- कार्ट मॉडल (Hidden by default) -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">×</span>
+      <h2>आपका कार्ट</h2>
+      <div id="cart-items"></div>
+      <p>कुल राशि: ₹<span id="cart-total">0</span></p>
+      <button class="checkout-btn">चेकआउट</button>
+    </div>
+  </div>
+
+  <!-- फुटर -->
+  <footer>
+    <div class="container">
+      <p>© 2025 SahneBySaba. सर्वाधिकार सुरक्षित</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
