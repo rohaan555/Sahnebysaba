@@ -1,46 +1,42 @@
-let cart = [];
+// Add this to your main JavaScript file
+document.addEventListener('DOMContentLoaded', function() {
+    // Add to Cart functionality
+    const addToCartButtons = document.querySelectorAll('[data-add-to-cart]');
+    
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-product-id');
+            // Add product to cart (you'll need to implement this logic)
+            addProductToCart(productId);
+            
+            // Update cart count
+            updateCartCount();
+            
+            // Optional: Show confirmation
+            alert('Product added to cart!');
+        });
+    });
+    
+    // Cart click navigation
+    const cartIcon = document.querySelector('.cart-icon');
+    if(cartIcon) {
+        cartIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = '/cart.html'; // Make sure this page exists
+        });
+    }
+});
 
-function addToCart(name, price) {
-  cart.push({ name, price });
-  updateCartCount();
-  alert(`${name} कार्ट में जोड़ दिया गया है`);
+function addProductToCart(productId) {
+    // Implement your cart logic here
+    // Could use localStorage or send to server
 }
 
 function updateCartCount() {
-  document.getElementById('cart-count').textContent = cart.length;
-}
-
-function openCart() {
-  const modal = document.getElementById('cart-modal');
-  const cartItems = document.getElementById('cart-items');
-  const cartTotal = document.getElementById('cart-total');
-  
-  // कार्ट आइटम्स डिस्प्ले करें
-  cartItems.innerHTML = '';
-  let total = 0;
-  
-  cart.forEach(item => {
-    const itemElement = document.createElement('div');
-    itemElement.className = 'cart-item';
-    itemElement.innerHTML = `
-      <p>${item.name} - ₹${item.price}</p>
-    `;
-    cartItems.appendChild(itemElement);
-    total += item.price;
-  });
-  
-  cartTotal.textContent = total;
-  modal.style.display = 'block';
-}
-
-function closeCart() {
-  document.getElementById('cart-modal').style.display = 'none';
-}
-
-// मोडल बाहर क्लिक करने पर बंद हो
-window.onclick = function(event) {
-  const modal = document.getElementById('cart-modal');
-  if (event.target == modal) {
-    closeCart();
-  }
+    // Update the cart count display
+    const cartCount = document.querySelector('.cart-count');
+    if(cartCount) {
+        let currentCount = parseInt(cartCount.textContent) || 0;
+        cartCount.textContent = currentCount + 1;
+    }
 }
